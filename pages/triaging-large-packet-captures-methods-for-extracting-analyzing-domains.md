@@ -1,4 +1,8 @@
-Triaging Large Packet Captures - Methods for Extracting & Analyzing Domains
+---
+layout: page
+title: Triaging Large Packet Captures - Methods for Extracting & Analyzing Domains
+description: Triaging Large Packet Captures - Methods for Extracting & Analyzing Domains
+---
 
 In the recent post [Triaging Large Packet Captures - 4 Key TShark Commands to Start Your Investigation](https://401trg.github.io/triaging-large-packet-captures-4-key-tshark-commands-to-start-your-investigation) I discussed some areas to begin investigating a large packet capture.  Generally when confronted with a large PCAP with unknown behavior in it we want to start whittling away chunks to surface areas to focus our analysis.  As a general strategy it's important to understand the infrastructure used in the PCAP as well as the protocols that are being used.  In this post we will focus on examining infrastructure by extracting domains from the PCAP.  We will also show how these domains can be compared against the Cisco Umbrella Popularity lists.
 
