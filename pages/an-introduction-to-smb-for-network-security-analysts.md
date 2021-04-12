@@ -10,27 +10,27 @@ Of all the common protocols a new analyst encounters, perhaps none is quite as i
 
 At its most basic, SMB is a protocol to allow devices to perform a number of functions on each other over a (usually local) network. SMB has been around for so long and maintains so much backwards compatibility that it contains an almost absurd amount of vestigial functionality, but its modern core use is simpler than it seems. For the most part, today SMB is used to map network drives, send data to printers, read and write remote files, perform remote administration, and access services on remote machines. 
 
-SMB runs directly over TCP (port 445) or over NetBIOS (usually port 139, rarely port 137 or 138). To begin an SMB session, the two participants agree on a dialect, authentication is performed, and the initiator connects to a ‘tree.’ For most intents and purposes, the tree can be thought of as a network share. The PCAP below, shown in Wireshark, demonstrates a simple session setup and tree connect. In this case, the machine 192.168.10.31 is connecting to the “c$” share (equivalent to the C:\ drive) on the 192.168.10.30 machine, which is called “admin-pc.” 
+SMB runs directly over TCP (port 445) or over NetBIOS (usually port 139, rarely port 137 or 138). To begin an SMB session, the two participants agree on a dialect, authentication is performed, and the initiator connects to a `tree`. For most intents and purposes, the tree can be thought of as a network share. The PCAP below, shown in Wireshark, demonstrates a simple session setup and tree connect. In this case, the machine `192.168.10.31` is connecting to the `c$` share (equivalent to the `C:\ drive`) on the `192.168.10.30 machine`, which is called `admin-pc`. 
 
 ![smb_image_1](images/smb_image_1.png)
 
 If you open this PCAP in wireshark and look at the packet details, you will find a lot of information, and it can sometimes be difficult to tell what is relevant. Fortunately, as analysts we are mostly unconcerned with the details of these setup packets (with the exception of those relevant to authentication, which is discussed below). For the most part it is sufficient to make note of the machine and share being accessed and move on. 
 
-There are two special shares that you will see referenced often: the IPC$ and ADMIN$ shares. The ADMIN$ share can basically be thought of as a symbolic link to the path C:\Windows. The IPC$ share is a little different. It does not map to the file system directly, instead providing an interface through which remote procedure calls (RPC) can be performed, as discussed below.
+There are two special shares that you will see referenced often: the `IPC$` and `ADMIN$` shares. The `ADMIN$` share can basically be thought of as a symbolic link to the path `C:\Windows`. The `IPC$` share is a little different. It does not map to the file system directly, instead providing an interface through which remote procedure calls (RPC) can be performed, as discussed below.
 
 To get a better idea of how basic actions are performed with SMB, we’ll first take a look at a simplified version of a file copy. It looks like [this](https://github.com/401trg/detections/raw/master/pcaps/20171220_smb_mimikatz_copy.pcap): 
   
 ![smb_image_2](images/smb_image_2.png)
 
-The first action we see is parsed by wireshark as “Create Request File.” In this instance, this tells 192.168.10.30 that 192.168.10.31 would like to create the file mimikatz.exe (1). It is important to note that this is the same command used to access a file, so seeing a “Create Request” doesn’t always mean that a file is being created. 192.168.10.31 retrieves some information about the filesystem it’s writing to with GetInfo (2), and then transmits some length information with SetInfo (3). Next 192.168.10.31 requests a number of writes to send the actual file bytes over (4). We append some metadata (including timestamps) to the complete remote file (5) and close it. Our file transfer is now complete. 
+The first action we see is parsed by wireshark as `Create Request File`. In this instance, this tells `192.168.10.30` that `192.168.10.31` would like to create the file mimikatz.exe (<span style="color:red">1</span>).(1). It is important to note that this is the same command used to access a file, so seeing a `Create Request` doesn’t always mean that a file is being created. `192.168.10.31` retrieves some information about the filesystem it’s writing to with `GetInfo` (2), and then transmits some length information with `SetInfo` (3). Next `192.168.10.31` requests a number of writes to send the actual file bytes over (4). We append some metadata (including timestamps) to the complete remote file (5) and close it. Our file transfer is now complete. 
 
-Reads work similarly; the following [PCAP](https://github.com/401trg/detections/raw/master/pcaps/20171220_smb_mimikatz_copy_to_host.pcap) shows the write operation exactly reversed. Host 192.168.10.31 is downloading mimikatz from host 192.168.10.30. 
+Reads work similarly; the following [PCAP](https://github.com/401trg/detections/raw/master/pcaps/20171220_smb_mimikatz_copy_to_host.pcap) shows the write operation exactly reversed. Host `192.168.10.31` is downloading mimikatz from host `192.168.10.30`. 
 
 ![smb_image_3](images/smb_image_3.png)
 
-We begin by “creating” the request file again (1), though in this case it is an extant file that we are requesting a handle to. We use GetInfo to get a number of pieces of metadata from the file (2), and then make read requests for the actual file bytes (3). 
+We begin by *creating* the request file again (1), though in this case it is an extant file that we are requesting a handle to. We use `GetInfo` to get a number of pieces of metadata from the file (2), and then make read requests for the actual file bytes (3). 
 
-There are a large number of other SMB commands, but many of them are either rare or relatively self explanatory, and we won’t go into detail about them here. You may encounter AndX commands, which can be confusing at first. These simply allow two commands to be packaged as one, with one SMB header. For most purposes, you can treat them as two separate commands. 
+There are a large number of other SMB commands, but many of them are either rare or relatively self explanatory, and we won’t go into detail about them here. You may encounter `AndX` commands, which can be confusing at first. These simply allow two commands to be packaged as one, with one SMB header. For most purposes, you can treat them as two separate commands. 
 
 ## Authentication
 
