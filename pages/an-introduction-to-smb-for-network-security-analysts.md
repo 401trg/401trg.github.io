@@ -8,15 +8,15 @@ At its most basic, SMB is a protocol to allow devices to perform a number of fun
 
 SMB runs directly over TCP (port 445) or over NetBIOS (usually port 139, rarely port 137 or 138). To begin an SMB session, the two participants agree on a dialect, authentication is performed, and the initiator connects to a ‘tree.’ For most intents and purposes, the tree can be thought of as a network share. The PCAP below, shown in Wireshark, demonstrates a simple session setup and tree connect. In this case, the machine 192.168.10.31 is connecting to the “c$” share (equivalent to the C:\ drive) on the 192.168.10.30 machine, which is called “admin-pc.” 
 
-![Image of Yaktocat](assets/images/smb_image_1.png)
-![Image of Yaktocat](assets/images/smb_image_2.png)
-![Image of Yaktocat](assets/images/smb_image_3.png)
-![Image of Yaktocat](assets/images/smb_image_4.png)
-![Image of Yaktocat](assets/images/smb_image_5.png)
-![Image of Yaktocat](assets/images/smb_image_6.png)
-![Image of Yaktocat](assets/images/smb_image_7.png)
-![Image of Yaktocat](assets/images/smb_image_8.png)
-![Image of Yaktocat](assets/images/smb_image_9.png)
-![Image of Yaktocat](assets/images/smb_image_10.png)
-![Image of Yaktocat](assets/images/smb_image_11.png)
+![Image of Yaktocat](https://github.com/401trg/401trg.github.io/blob/4505254f97ef62e62752fb51978244e6a5b27814/assets/images/smb_image_1.png)
+![Image of Yaktocat](https://github.com/401trg/401trg.github.io/blob/4505254f97ef62e62752fb51978244e6a5b27814/assets/images/smb_image_2.png)
+![Image of Yaktocat](https://github.com/401trg/401trg.github.io/blob/4505254f97ef62e62752fb51978244e6a5b27814/assets/images/smb_image_3.png)
+![Image of Yaktocat](https://github.com/401trg/401trg.github.io/blob/4505254f97ef62e62752fb51978244e6a5b27814/assets/images/smb_image_4.png)
+![Image of Yaktocat](https://github.com/401trg/401trg.github.io/blob/4505254f97ef62e62752fb51978244e6a5b27814/assets/images/smb_image_5.png)
+![Image of Yaktocat](https://github.com/401trg/401trg.github.io/blob/4505254f97ef62e62752fb51978244e6a5b27814/assets/images/smb_image_6.png)
+![Image of Yaktocat](https://github.com/401trg/401trg.github.io/blob/4505254f97ef62e62752fb51978244e6a5b27814/assets/images/smb_image_7.png)
+![Image of Yaktocat](https://github.com/401trg/401trg.github.io/blob/4505254f97ef62e62752fb51978244e6a5b27814/assets/images/smb_image_8.png)
+![Image of Yaktocat](https://github.com/401trg/401trg.github.io/blob/4505254f97ef62e62752fb51978244e6a5b27814/assets/images/smb_image_9.png)
+![Image of Yaktocat](https://github.com/401trg/401trg.github.io/blob/4505254f97ef62e62752fb51978244e6a5b27814/assets/images/smb_image_10.png)
+![Image of Yaktocat](https://github.com/401trg/401trg.github.io/blob/4505254f97ef62e62752fb51978244e6a5b27814/assets/images/smb_image_11.png)
 
