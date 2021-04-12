@@ -4,14 +4,6 @@ title: 401TRG Archive
 tagline: Archive for former 401trg Blog Post
 description: Archive for former 401trg Blog Post
 ---
-- [Overview](pages/overview.html)
-- [Making an independent website](pages/independent_site.html)
-- [Making a personal site](pages/user_site.html)
-- [Making a site for a project](pages/project_site.html)
-- [Making a jekyll-free site](pages/nojekyll.html)
-- [Testing your site locally](pages/local_test.html)
-- [Resources](pages/resources.html)
-
 # Reports
 
 | Published | Post |
@@ -29,4 +21,3 @@ description: Archive for former 401trg Blog Post
 | Oct 02, 2017 | [Identifying and Triaging DNS Traffic on Your Network](pages/identifying-and-triaging-dns-traffic-on-your-network.html) |
 | Sept 28, 2017 | [Triaging Large Packet Captures - 4 Key TShark Commands to Start Your Investigation](pages/triaging-large-packet-captures-4-key-tshark-commands-to-start-your-investigation.html) |
 | Jul 11, 2017 | [Winnti (LEAD/APT17) Evolution - Going Open Source](pages/winnti-evolution-going-open-source.html) |
-
