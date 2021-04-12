@@ -19,8 +19,7 @@ If you open this PCAP in wireshark and look at the packet details, you will find
 There are two special shares that you will see referenced often: the IPC$ and ADMIN$ shares. The ADMIN$ share can basically be thought of as a symbolic link to the path C:\Windows. The IPC$ share is a little different. It does not map to the file system directly, instead providing an interface through which remote procedure calls (RPC) can be performed, as discussed below.
 
 To get a better idea of how basic actions are performed with SMB, we’ll first take a look at a simplified version of a file copy. It looks like this: 
-
-
+  
 ![Image of Yaktocat](images/smb_image_2.png)
 
 The first action we see is parsed by wireshark as “Create Request File.” In this instance, this tells 192.168.10.30 that 192.168.10.31 would like to create the file mimikatz.exe (1). It is important to note that this is the same command used to access a file, so seeing a “Create Request” doesn’t always mean that a file is being created. 192.168.10.31 retrieves some information about the filesystem it’s writing to with GetInfo (2), and then transmits some length information with SetInfo (3). Next 192.168.10.31 requests a number of writes to send the actual file bytes over (4). We append some metadata (including timestamps) to the complete remote file (5) and close it. Our file transfer is now complete. 
