@@ -4,7 +4,7 @@ title: Building a Data Lake for Threat Research
 description: Building a Data Lake for Threat Research
 ---
 
-Not long ago the thought of storing every DNS query, SSL certificate, HTTP transaction, and netflow record on a traditional enterprise network for an unlimited period of time sounded ludicrous. Even harder to imagine is using that data to conduct threat research or hunting in a cost-effective and time-efficient way. However, today cloud computing enables the retention and search of full fidelity network artifacts at a massive scale. There are a number of technologies available that make this analyst’s dream possible. In this blog post we will discuss a method of conducting threat research on network metadata at scale using Amazon S3, Apache Parquet, Spark, and Zeppelin. 
+Not long ago the thought of storing every DNS query, SSL certificate, HTTP transaction, and netflow record on a traditional enterprise network for an unlimited period of time sounded ludicrous. Even harder to imagine is using that data to conduct threat research or hunting in a cost-effective and time-efficient way. However, today cloud computing enables the retention and search of full fidelity network artifacts at a massive scale. There are a number of technologies available that make this analyst’s dream possible. In this blog post we will discuss a method of conducting threat research on network metadata at scale using [Amazon S3](https://aws.amazon.com/s3/), [Apache Parquet](https://parquet.apache.org/), [Spark](https://spark.apache.org/), and [Zeppelin](https://zeppelin.apache.org/). 
 
 ### Important Network Artifacts to Extract and Store  
 
@@ -44,7 +44,7 @@ First and foremost, searching for various types of indicators can prove very val
  
 #### IP Address Monitoring
 
-In the CrowdStrike Cyber Intrusion Services Casebook 2017, remote access is one of the predominant attack vectors they encountered. Using a data lake you can query the remote IP addresses associated with any RDP or VPN connections to your environment. You can tailor your queries to look for established sessions or brute force attempts. These destinations can be fact checked against what is allowed in your environment to identify potentially malicious connections.
+In the [CrowdStrike Cyber Intrusion Services Casebook 2017](https://www.crowdstrike.com/resources/reports/cyber-intrusion-services-casebook/), remote access is one of the predominant attack vectors they encountered. Using a data lake you can query the remote IP addresses associated with any RDP or VPN connections to your environment. You can tailor your queries to look for established sessions or brute force attempts. These destinations can be fact checked against what is allowed in your environment to identify potentially malicious connections.
 
 This should also be applied to DNS traffic. In general your outbound DNS traffic should be confined to a handful of servers. By regularly monitoring remote IPs queried, you should be able to flag something that forces a host to resolve a query (or tunnel traffic) to an irregular destination. Once curated and massaged, these types of techniques should be automated and integrated into your detection tools.
 
@@ -59,7 +59,7 @@ A simple but powerful technique we use is counting unique instances of interesti
     - Subject
     - Issuer
     - Serial
-    - JA3 Fingerprints
+    - [JA3 Fingerprints](https://github.com/salesforce/ja3)
 4. DNS resource records (RRs)
     - Name 
     - TTL
@@ -70,7 +70,7 @@ A simple but powerful technique we use is counting unique instances of interesti
 
 ### Data Stacking
 
-Building on the idea of counting unique attributes, we can expand to counting groups of attributes. This method, sometimes referred to as Data Stacking, is commonly used to hunt for suspicious processes on a given host as described in this blog post by FireEye. This method can also be applied to many network attributes. Below are some examples of attributes to group and count:
+Building on the idea of counting unique attributes, we can expand to counting groups of attributes. This method, sometimes referred to as Data Stacking, is commonly used to hunt for suspicious processes on a given host as described in this [blog post](https://www.fireeye.com/blog/threat-research/2012/11/indepth-data-stacking.html) by FireEye. This method can also be applied to many network attributes. Below are some examples of attributes to group and count:
 
 1. **HTTP header names:** Grouping by the order of header names should identify transactions where unusual header names or header ordering occurs. 
 2. **DNS RRs:** This one may be a little tricky due to volume, but examining combinations such as the following can help hunt down suspicious DNS queries:
