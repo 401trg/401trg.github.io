@@ -1,4 +1,8 @@
-## Building a Data Lake for Threat Research
+---
+layout: page
+title: Building a Data Lake for Threat Research
+description: Building a Data Lake for Threat Research
+---
 
 Not long ago the thought of storing every DNS query, SSL certificate, HTTP transaction, and netflow record on a traditional enterprise network for an unlimited period of time sounded ludicrous. Even harder to imagine is using that data to conduct threat research or hunting in a cost-effective and time-efficient way. However, today cloud computing enables the retention and search of full fidelity network artifacts at a massive scale. There are a number of technologies available that make this analyst’s dream possible. In this blog post we will discuss a method of conducting threat research on network metadata at scale using Amazon S3, Apache Parquet, Spark, and Zeppelin. 
 
