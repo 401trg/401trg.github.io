@@ -95,7 +95,7 @@ Our main focus here has been on domains, but it's important to note that you may
 
 ## Using Cisco Umbrella List to Examine Extracted Hostnames
 
-Once domains have been extracted from your PCAP you can begin identifying well known domains and isolating suspicious ones. For this task I like to use the [Cisco Umbrella Popularity Lists](http://s3-us-west-1.amazonaws.com/umbrella-static/index.html). Using the Top 1M list and a simple Python script you rank all the domains in your list according to their popularity in the Cisco Umbrella list. When searching for leads I like to focus on domains not found in the list. Below is the output from a Python script found on our github <link> that takes a list of domains and checks it against the Top 1M list.
+Once domains have been extracted from your PCAP you can begin identifying well known domains and isolating suspicious ones. For this task I like to use the [Cisco Umbrella Popularity Lists](http://s3-us-west-1.amazonaws.com/umbrella-static/index.html). Using the Top 1M list and a simple Python script you rank all the domains in your list according to their popularity in the Cisco Umbrella list. When searching for leads I like to focus on domains not found in the list. Below is the output from a [python script](https://github.com/401trg/utilities/blob/97f7e5526beee7059dad8a58eb868c6fe5866620/popularDomains.py) found on our github that takes a list of domains and checks it against the Top 1M list.
 
 ```bash
 *** Domains Not Found in Top 1 Million ***
@@ -128,11 +128,4 @@ Note that we are checking for exact matches here.  If you are overwhelmed with a
 
 In this blog post we discussed three main ways of extracting domains from a PCAP, using TShark’s host output, extracting names from DNS queries, and extracting from HTTP host headers.  This will produce a fairly comprehensive view of the domains associated with your PCAP.  This information can be used to surface suspicious domains as well as trim traffic associated with non-suspicious domains. In future blog posts we will discuss methods for further analyzing suspicious domains.
 
-Written by James Condon, Director of Threat Research, ProtectWise.
-
-
-
-
-
-
-
+*Written by James Condon, Director of Threat Research, ProtectWise.*
