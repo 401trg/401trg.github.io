@@ -102,50 +102,50 @@ A good attacker can move almost silently through your network, and even when you
 
 <sup>1</sup> A network share is some sort of shared resource on the network. Think of a drive or folder accessible over the network. 
 
-<sup>2</sup> This network setup may look familiar to you. This and all the PCAPs referenced in this document are loosely based on the lab setup in the fantastic Microsoft Advanced Threat Analytics Attack Simulation Playbook here: https://gallery.technet.microsoft.com/ATA-Playbook-ef0a8e38 . This is a great resource whether you use ATA in your environment or not.
+<sup>2</sup> This network setup may look familiar to you. This and all the PCAPs referenced in this document are loosely based on the lab setup in the fantastic Microsoft Advanced Threat Analytics Attack Simulation Playbook here: [https://gallery.technet.microsoft.com/ATA-Playbook-ef0a8e38](https://gallery.technet.microsoft.com/ATA-Playbook-ef0a8e38) . This is a great resource whether you use ATA in your environment or not.
 
-<sup>3</sup> For further reading, see here: http://www.intelliadmin.com/index.php/2007/10/the-admin-share-explained/
+<sup>3</sup> For further reading, see here: [http://www.intelliadmin.com/index.php/2007/10/the-admin-share-explained/](http://www.intelliadmin.com/index.php/2007/10/the-admin-share-explained/)
 
-<sup>4</sup> For further info, see here: http://smallvoid.com/article/winnt-ipc-share.html and here: https://support.microsoft.com/en-us/help/3034016/ipc-share-and-null-session-behavior-in-windows
+<sup>4</sup> For further info, see here: [http://smallvoid.com/article/winnt-ipc-share.html](http://smallvoid.com/article/winnt-ipc-share.html) and here: [https://support.microsoft.com/en-us/help/3034016/ipc-share-and-null-session-behavior-in-windows](https://support.microsoft.com/en-us/help/3034016/ipc-share-and-null-session-behavior-in-windows)
 
 <sup>5</sup> The added complexity in the full PCAP comes from two things: creating and setting the appropriate metadata of the C:\temp folder, and adding metadata to the received mimikatz file and \tmp directory.
 
-<sup>6</sup> The phenomenal mimikatz tool, by Benjamin Delpy, is an essential part of every security researcher’s toolbox. It can be found here: https://github.com/gentilkiwi/mimikatz. Precompiled versions are available here: https://github.com/gentilkiwi/mimikatz/releases
+<sup>6</sup> The phenomenal mimikatz tool, by Benjamin Delpy, is an essential part of every security researcher’s toolbox. It can be found here: [https://github.com/gentilkiwi/mimikatz](https://github.com/gentilkiwi/mimikatz). Precompiled versions are available here: [https://github.com/gentilkiwi/mimikatz/releases](https://github.com/gentilkiwi/mimikatz/releases)
 
-<sup>7</sup> For more information, see here: https://msdn.microsoft.com/en-us/library/ee441741.aspx.
+<sup>7</sup> For more information, see here: [https://msdn.microsoft.com/en-us/library/ee441741.aspx](https://msdn.microsoft.com/en-us/library/ee441741.aspx).
 
-<sup>8</sup> https://msdn.microsoft.com/en-us/library/ee442210.aspx 
+<sup>8</sup> [https://msdn.microsoft.com/en-us/library/ee442210.aspx](https://msdn.microsoft.com/en-us/library/ee442210.aspx)
 
-<sup>9</sup> https://docs.microsoft.com/en-us/windows-server/security/kerberos/ntlm-overview
+<sup>9</sup> [https://docs.microsoft.com/en-us/windows-server/security/kerberos/ntlm-overview](https://docs.microsoft.com/en-us/windows-server/security/kerberos/ntlm-overview)
 
-<sup>10</sup> See http://www.harmj0y.net/blog/redteaming/pass-the-hash-is-dead-long-live-localaccounttokenfilterpolicy/ for more details.
+<sup>10</sup> See [http://www.harmj0y.net/blog/redteaming/pass-the-hash-is-dead-long-live-localaccounttokenfilterpolicy/](http://www.harmj0y.net/blog/redteaming/pass-the-hash-is-dead-long-live-localaccounttokenfilterpolicy/) for more details.
 
-<sup>11</sup> See https://blogs.msdn.microsoft.com/chiranth/2013/09/20/ntlm-want-to-know-how-it-works/ for further details.
+<sup>11</sup> See [https://blogs.msdn.microsoft.com/chiranth/2013/09/20/ntlm-want-to-know-how-it-works/](https://blogs.msdn.microsoft.com/chiranth/2013/09/20/ntlm-want-to-know-how-it-works/) for further details.
 
-<sup>12</sup> See here for more details: http://www.roguelynn.com/words/explain-like-im-5-kerberos/
+<sup>12</sup> See here for more details: [http://www.roguelynn.com/words/explain-like-im-5-kerberos/](http://www.roguelynn.com/words/explain-like-im-5-kerberos/)
 
-<sup>13</sup> See here for more information: https://technet.microsoft.com/en-us/dn785092.aspx
+<sup>13</sup> See here for more information: [https://technet.microsoft.com/en-us/dn785092.aspx](https://technet.microsoft.com/en-us/dn785092.aspx)
 
 <sup>14</sup> This PCAP is taken from the wireshark website, it is “smb-on-windows-10.PCAPng”
 
 <sup>15</sup> The exact command being run in this PCAP is “net user /domain”.
 
-<sup>16</sup> https://support.microsoft.com/en-us/help/313565/how-to-use-the-at-command-to-schedule-tasks
+<sup>16</sup> [https://support.microsoft.com/en-us/help/313565/how-to-use-the-at-command-to-schedule-tasks](https://support.microsoft.com/en-us/help/313565/how-to-use-the-at-command-to-schedule-tasks)
 
-<sup>17</sup> https://msdn.microsoft.com/en-us/library/cc246545.aspx
+<sup>17</sup> [https://msdn.microsoft.com/en-us/library/cc246545.aspx](https://msdn.microsoft.com/en-us/library/cc246545.aspx)
 
 <sup>18</sup> This is a significant simplification. The SMB command does ultimately matter and has implications for how the data is passed to the RPC call and the service at a low level. Fully discussing this is beyond the scope of this guide, but I encourage every reader to carefully inspect the RPC calls in each PCAP to see how the SMB, RPC, and service commands relate.
 
-<sup>19</sup> https://docs.microsoft.com/en-us/sysinternals/downloads/psexec
+<sup>19</sup> [https://docs.microsoft.com/en-us/sysinternals/downloads/psexec](https://docs.microsoft.com/en-us/sysinternals/downloads/psexec_
 
 <sup>20</sup> The exact command being run is: psexec.exe \\admin-pc -accepteula cmd /c (cd c:\temp ^& mimikatz.exe “privilege::debug” “sekurlsa::tickets /export” “exit”) (see the ATA playbook above)
 
-<sup>21</sup> https://msdn.microsoft.com/en-us/library/cc232126.aspx
+<sup>21</sup> [https://msdn.microsoft.com/en-us/library/cc232126.aspx](https://msdn.microsoft.com/en-us/library/cc232126.aspx)
 
-<sup>22</sup> https://www.offensive-security.com/metasploit-unleashed/psexec-pass-hash/
+<sup>22</sup> [https://www.offensive-security.com/metasploit-unleashed/psexec-pass-hash/](https://www.offensive-security.com/metasploit-unleashed/psexec-pass-hash/)
 
-<sup>23</sup> See https://www.sixdub.net/?p=591 for an excellent discussion of a similar lateral movement technique.
+<sup>23</sup> See [https://www.sixdub.net/?p=591](https://www.sixdub.net/?p=591) for an excellent discussion of a similar lateral movement technique.
 
-<sup>24</sup> WMI can use RPC over TCP, and powershell remoting can be run over Windows Remote Management (WinRM), which is HTTP based. See https://technet.microsoft.com/en-us/library/ff700227.aspx for more details on powershell remoting.
+<sup>24</sup> WMI can use RPC over TCP, and powershell remoting can be run over Windows Remote Management (WinRM), which is HTTP based. See [https://technet.microsoft.com/en-us/library/ff700227.aspx](https://technet.microsoft.com/en-us/library/ff700227.aspx) for more details on powershell remoting.
 
-<sup>25</sup> http://www.harmj0y.net/blog/ is a fantastic resource to begin expanding your knowledge of Active Directory attack techniques. http://adsecurity.org/ is another excellent source.
+<sup>25</sup> [http://www.harmj0y.net/blog/](http://www.harmj0y.net/blog/) is a fantastic resource to begin expanding your knowledge of Active Directory attack techniques. [http://adsecurity.org/](http://adsecurity.org/) is another excellent source.
