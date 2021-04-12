@@ -24,7 +24,7 @@ To get a better idea of how basic actions are performed with SMB, we’ll first 
 
 The first action we see is parsed by wireshark as `Create Request File`. In this instance, this tells `192.168.10.30` that `192.168.10.31` would like to create the file mimikatz.exe (<span style="color:red">1</span>). It is important to note that this is the same command used to access a file, so seeing a `Create Request` doesn’t always mean that a file is being created. `192.168.10.31` retrieves some information about the filesystem it’s writing to with `GetInfo` (<span style="color:red">2</span>), and then transmits some length information with `SetInfo` (<span style="color:red">3</span>). Next `192.168.10.31` requests a number of writes to send the actual file bytes over (<span style="color:red">4</span>). We append some metadata (including timestamps) to the complete remote file (<span style="color:red">5</span>) and close it. Our file transfer is now complete. 
 
-Reads work similarly; the following [PCAP](https://github.com/401trg/detections/raw/master/pcaps/20171220_smb_mimikatz_copy_to_host.pcap) shows the write operation exactly reversed. Host ```192.168.10.31``` is downloading mimikatz from host `192.168.10.30`. 
+Reads work similarly; the following [PCAP](https://github.com/401trg/detections/raw/master/pcaps/20171220_smb_mimikatz_copy_to_host.pcap) shows the write operation exactly reversed. Host `192.168.10.31` is downloading mimikatz from host `192.168.10.30`. 
 
 ![smb_image_3](images/smb_image_3.png)
 
