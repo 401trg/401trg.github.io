@@ -30,7 +30,9 @@ The Winnti group has been active since roughly 2010. Significant previous resear
 - Originating Location: China (high confidence)
 - Potential Aliases: Wicked Panda, APT17
 
-## Evolution of Winnti - Open source tools, and Mac OS targeting:
+## Evolution of Winnti
+
+#### > Open source tools, and Mac OS targeting:
 
 Within the Winnti campaigns observed by ProtectWise, the use of open source tooling was common. Specifically, the group has been utilizing the Browser Exploitation Framework (BeEF) and Metasploit Meterpreter. The use of open source tools by advanced actor groups has become increasingly common, as discussed by our colleagues in the industry. To the best of our knowledge this is a new technique for the Winnti group and we expect it to be used in future attacks. 
 
