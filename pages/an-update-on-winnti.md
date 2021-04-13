@@ -4,7 +4,7 @@ title: An Update on Winnti
 description: An Update on Winnti
 ---
 
-In our recent post "[Winnti Evolution - Going Open Source]"(https://401trg.github.io/pages/winnti-evolution-going-open-source.html), we shared new details on the Winnti APT group and their continued targeting of online gaming organizations. The purpose of this follow-up post is to share some new information about  the group and their continued activities. 
+In our recent post [Winnti Evolution - Going Open Source](https://401trg.github.io/pages/winnti-evolution-going-open-source.html), we shared new details on the Winnti APT group and their continued targeting of online gaming organizations. The purpose of this follow-up post is to share some new information about  the group and their continued activities. 
 
 The group continues to primarily use publicly available pentesting tools outside of the US. In the multiple incidents we have been involved in, the group has relied heavily on BeEF and Cobalt Strike. Cobalt strike has been their primary toolset for command and control within the victim networks, while BeEF has been used to assist in the initial infection process.
 
