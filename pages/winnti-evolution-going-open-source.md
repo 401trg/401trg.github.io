@@ -80,7 +80,7 @@ This is the HTML file containing the fake resume which will load in browser for 
 
 ![winnti_image_6](images/winnti_image_6.png)
 
-Figure 7: BeEF hook.js request.
+Figure 6: Added hook.js load request placed in fake resume.
  
 At this point, in cases where BeEF has been used, exploits are typically attempted on victim hosts with the help of BeEF modules. A commonly used module was Jenkins_groovy_code_exec. 
 
@@ -91,6 +91,8 @@ One of the Winnti group’s distinctive techniques is their particular style of 
 As observed in previous Winnti attacks, the group uses commonly accepted and poorly monitored protocols and ports for their C2 communication (ports 53, 80, 443). With the addition of BeEF, the group has made use of TCP port 8000 as well. Amusingly, the group's use of BeEF has been fairly rudimentary, not even taking advantage of the basic obfuscation features included in the program. We observed the group using GAGAHOOK instead of the default BEEFHOOK session name and BEEFSESSION session cookie name.
 
 ![winnti_image_7](images/winnti_image_7.png)
+
+Figure 7: BeEF hook.js request.
 
 As in previous Winnti campaigns, the group continues to use legitimate code signing certificates, stolen from online gaming organizations, to sign their malware. This technique can help to hide the malicious intent of the group’s code, allowing it to run in environments where execution is restricted to signed/trusted programs. While unconfirmed as of this writing, we believe the Winnti group is continuing to steal and use certificates from new organizations. 
 
