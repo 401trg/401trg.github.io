@@ -39,6 +39,7 @@ Within the Winnti campaigns observed by ProtectWise, the use of open source tool
 Also noteworthy are attempts to deliver JAR files containing macOS applications which have meterpreter functionality. In addition, victims running Windows were delivered MSI files which were built using a free EXE to MSI converter [http://www.exetomsi.com/](http://www.exetomsi.com/).
 
 ![winnti_image_1](images/winnti_image_1.png)
+
 Figure 1: Summary of attack progression.
   
 ## Delivery:
@@ -46,6 +47,7 @@ Figure 1: Summary of attack progression.
 The Winnti campaign detailed in this post began with spear phishing emails aimed at a Japanese gaming studio’s staff. At least one of these emails claimed it was from an applicant for a job posting who was listing their relevant experience, along with a link to their resume. 
 
 ![winnti_image_2](images/winnti_image_2.png)
+
 Figure 2: Winnti Phishing Email.
 
 The approximate translation of the Winnti phishing email is as follows: 
@@ -54,9 +56,11 @@ The approximate translation of the Winnti phishing email is as follows:
 We observed Winnti using two different techniques when the link was clicked. In the first technique, the user was directed to an HTML page which loaded a fake English resume. In the second technique, which we only observed a few times, the landing page directly downloaded a JAR file to the victim’s machine. 
 
 ![winnti_image_3](images/winnti_image_3.png)
+
 Figure 3: Fake resume loaded in browser. Some items blurred as content may have been stolen.
 
 ![winnti_image_4](images/winnti_image_4.png)
+
 Figure 4: Fake resume continued.
 
 ## Landing:
@@ -68,12 +72,14 @@ In cases where the above resume is loaded, it is delivered as follows:
 This page is an HTML file containing a simple iframe instruction to load `real.html`.
 
 ![winnti_image_5](images/winnti_image_5.png)
+
 Figure 5: Link-click landing page HTML content. 
   
 ### real.html
 This is the HTML file containing the fake resume which will load in browser for the link-click victim. It contains a script which loads the BeEF hook script from a separate external host. The group’s infrastructure changes rapidly, occasionally allowing us to observe them modifying the hook page destination domain over the span of a few minutes. Sometimes the same destination would be referred to by IP in one version of real.html and by hostname in another. Two additional files, `resume_screen.css` and `mypic.jpg`, are also loaded to make the resume look more realistic with improved formatting. 
 
 ![winnti_image_6](images/winnti_image_6.png)
+
 Figure 7: BeEF hook.js request.
  
 At this point, in cases where BeEF has been used, exploits are typically attempted on victim hosts with the help of BeEF modules. A commonly used module was Jenkins_groovy_code_exec. 
