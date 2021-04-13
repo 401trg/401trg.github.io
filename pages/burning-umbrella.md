@@ -157,6 +157,6 @@ We hope the information we’ve shared in this report will help potential target
 
 We’d like to extend a special thank you to all the victims, targets, researchers, and security vendors who have shared their own findings over the years. 
 
-If you are interested in automating the intake of public 401TRG indicators, we recommend using our [github detections repository.](https://github.com/401trg/detections)
+All indicators for this report are located at our [github detections repository.](https://github.com/401trg/detections)
 
 *Written by Tom Hegel, Senior Threat Researcher, Protectwise*
