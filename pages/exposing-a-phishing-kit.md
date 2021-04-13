@@ -1,3 +1,9 @@
+---
+layout: page
+title: Exposing a Phishing Kit
+description: Exposing a Phishing Kit
+---
+
 Recently, several seemingly suspicious emails were brought to the attention of 401TRG. While phishing campaigns are relatively common, this one had a few interesting features. I decided to investigate this campaign further, and found that the attacker(s) had left most of their php code in a publicly accessible directory on their phishing page. Armed with this code, I thought I would take the opportunity to share some insight about how this particular campaign was run, and some common phishing tactics it used. 
 
 This campaign used crafted phishing emails, often using stolen information to impersonate someone who was known to the target in a professional capacity. The emails contained an attached PDF, which I initially suspected may have contained malware, but in fact only contained a single link, which claimed it was to download another PDF (perhaps the attackers were counting on the victim to not question why they’d downloaded a PDF only to download another one!). 
