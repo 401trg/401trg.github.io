@@ -6,7 +6,7 @@ description: Burning Umbrella
 
 > #### An Intelligence Report on the Winnti Umbrella and Associated State-Sponsored Attackers
 
-Key Judgements
+**Key Judgements:**
  
 - We assess with high confidence that the Winnti umbrella is associated with the Chinese state intelligence apparatus, with at least some elements located in the Xicheng District of Beijing.
 - A number of Chinese state intelligence operations from 2009 to 2018 that were previously unconnected publicly are in fact linked to the Winnti umbrella.
@@ -50,60 +50,60 @@ Based on the infrastructure, links to previous reporting, and recently observed 
 
 One example of a politically focused lure by the Winnti umbrella and linked groups is an end of 2017 document titled “Resolution 2375 (2017) Strengthening Sanctions on DPR of KOREA” which is a malicious file associated with the C2 infrastructure described here - see MD5: 3b58e122d9e17121416b146daab4db9d.
 
-<image>
+![burning_image_1](images/burning_image_1.png)
  
-Some Key Public Reports:
-2013: 
+#### Some Key Public Reports:
+***2013:*** 
 Kaspersky Lab publicly reported on the original Winnti group, technical details around the Winnti samples, and various honeypot analysis methods. Most noteworthy is the Winnti umbrella’s targeting of gaming organizations in search of code signing certificates, virtual currencies, and updating mechanisms which could potentially be used to attack victims’ clients. Interestingly, this was the first identified trojan for the 64-bit Microsoft Windows operating system with a valid digital signature as noted by the author. The abuse of signed applications is a very effective attack approach that the entity continues to use. 
 
-2014: 
+***2014:***
 Novetta released an outstanding report detailing “Operation SMN,” in which they collaborated with a number of private organizations on a large scale malware eradication operation which is linked to the original Winnti group by the malware being delivered. In the report, the actor is named Axiom. Novetta reported links to publications from as far back as 2009 that also link the group to the Chinese state intelligence apparatus with high confidence. Links exist to various known attacks and actor groups, such as “Operation Aurora,” Elderwood Group’s successful 2010 attack against Google and many other organizations. Another link exists to the successful compromise of the security organization Bit9 in 2013, where their own product was used to sign and spread malware to their customers. In addition, FireEye’s “Operation DeputyDog” detailed attacks on Japanese targets from the same attack infrastructure. Many other incidents are detailed in the Operation SMN report. Following all of these details back in time, we can see an overlap in TTPs and targets from the APT1 report by Mandiant, which serves as a great historical example of Chinese intelligence cyber operations in their most basic form.
 
-2016: 
+***2016:***
 Cylance released a blog post reporting on digitally signed malware used in targeted attacks against gaming organizations in China, Taiwan, South Korea, Europe, Russia, and the United States. Cylance refers to the attacking entity as “PassCV” in their reporting. Cylance successfully identified a large quantity of malware binaries which were signed with valid certificates stolen from a number of gaming studios in East Asia. In addition to detailing the individual certificates and signed malware, they identified a significant amount of network infrastructure which contain various interesting links to our own findings. 
 
-2017 - March/April: 
+***2017 - March/April:***
 Trend Micro reported on attacks that abused GitHub for use in malware command and control, which they attributed to the original Winnti group. Amusingly, Trend Micro later reported on an individual linked to the group and the attacks who happens to be a fan of pigs.
 
-2017 - July 5th: 
+***2017 - July 5th:***
 Citizen Lab reported on attacks against journalists by an actor mimicking China-focused news organizations HK01, Epoch Times, Mingjing News, and Bowen Press. As Citizen Lab noted, these news organizations are blocked in China for their political views. The report notes that malware used in these attacks was linked to a stolen code signing certificate mentioned in the Cylance PassCV post. That overlap, in addition to infrastructure links from a Palo Alto Unit 42 blog post, strongly links this attack to the previously mentioned reports as well as to our own. As Unit 42 reports, the attacks against entities in the government of Thailand used the “bookworm” trojan.
 
-2017 - July/October:
+***2017 - July/October:***
 ProtectWise 401TRG published our own findings and an update on LEAD using open source and public tooling in attacks against Japanese gaming organizations. These attacks are linked with high confidence to ongoing operations in the United States and East Asia. 
 
-Other Noteworthy Events: 
+***Other Noteworthy Events:***
 In 2017, multiple supply-chain attacks occurred which had some similarities to the Winnti umbrella and associated entities. For example, Kaspersky reported on ShadowPad, a large-scale compromise of NetSarang, which resembles the Winnti and PlugX malware. In addition, Kaspersky and Intezer identified notable code similarities to the Winnti umbrella and APT17 in the compromise of Piriform, which allowed attackers to sign and spread altered versions of the CCleaner software to a large customer base. 
-Analysis of Attacks on Initial Targets
 
+## Analysis of Attacks on Initial Targets
 
 Throughout 2017 and 2018, ProtectWise 401TRG was involved in a number of detection and incident response engagements with our customers that linked back to the Winnti umbrella and other closely associated entities. Through the analysis of public and private intelligence, we have successfully identified similar attacks, which allow us to assess with high confidence that the details below follow a global attack trend as the Chinese intelligence operations have evolved over time.
 
-2017 Operations:
+***2017 Operations:***
 One of the most common tactics used by the Winnti umbrella and related entities is phishing users whose credentials may provide elevated access to a target network. We have observed spear-phishing campaigns that target human resources and hiring managers, IT staff, and internal information security staff, which are generally very effective. 
 
 In 2017 the entity focused most of its efforts around technical job applicant email submissions to software engineering, IT, and recruiting staff, which we originally reported on at our 401trg.pw blog. The phishing lures used multiple languages, including Japanese as in the below example: 
 
-<image>
+![burning_image_2](images/burning_image_2.png)
  
 The approximate translation is as follows:
 
-I saw your job posting. My main languages are Object-C, JAVA, and Swift, and I have 7 years experience with Ruby and 6 years experience with PHP. I have 5 years experience developing iOS apps, as well as Android apps, AWS, Jenkins, Microsoft Azure, ZendFramework, and smartphone application payment processing. I also have 5 years experience with MSSQL, Mysql, Oracle, and PostgreSQL. Please see here: [malicious link] 
+    > I saw your job posting. My main languages are Object-C, JAVA, and Swift, and I have 7 years experience with Ruby and 6 years experience with PHP. I have 5 years  experience developing iOS apps, as well as Android apps, AWS, Jenkins, Microsoft Azure, ZendFramework, and smartphone application payment processing. I also have 5 years experience with MSSQL, Mysql, Oracle, and PostgreSQL. Please see here: [malicious link] 
 
 The process that followed a target clicking the malicious link evolved as the attacker progressed through the campaigns. The links consistently sent the victim to a fake resume, but the exact format of that resume changed over time; we have observed resumes being delivered as DOC, XLS, PDF, and HTML files. Once opened, the fake resumes performed various actions in an effort to download malware onto the victim host. During the same time period, we also observed the actor using the Browser Exploitation Framework (BeEF) to compromise victim hosts and download Cobalt Strike. In this campaign, the attackers experimented with publicly available tooling for attack operations. During this infection process, the actor was known to check the target operating system and deliver malware, signed by a previously stolen key, for the appropriate host environment. In some cases, valid Apple certificates stolen from victims were used in this process, which linked the attack to additional victim organizations. 
 
 Post-compromise actions by the attacker followed a common pattern. First they attempted to spread laterally in the network using stolen credentials and various reconnaissance efforts, such as manually examining shares and local files. The primary goal of these attacks was likely to find code-signing certificates for signing future malware. The secondary goals of the attackers depended on the type of victim organization, but were often financial. For example, gaming organizations tended to fall victim to manipulation or theft of in-game virtual currencies. Non-gaming victims may have experienced theft of intellectual property such as user or technology data. 
 
-2018 Operations:
+***2018 Operations:***
+
 More recently, various attack campaigns from the Winnti umbrella and associated groups have been very successful without the use of any exploits or malware. Phishing remains the initial infection vector but the campaign themes have matured. In 2018, the campaigns have largely been focused on common services such as Office 365 and Gmail. 
 
-<image>
+![burning_image_3](images/burning_image_3.png)
 
 It is important to note that attackers likely have additional information on their target organizations' preferred email solutions based on previous incidents or open source intelligence. 
 
 In more recent phishing campaigns conducted by the Winnti umbrella and associated groups, URL shortening services have been used. For example, Google’s URL shortening service goo.gl was used over the past weeks, allowing us to gain insight into the scale of this campaign using publicly available analytics.
 
-<image>
-
+![burning_image_4](images/burning_image_4.png)
 
 As you can see from the above screenshot, this particular phishing campaign ran from March 20th to March 28th, 2018. Notably, the link was created on February 23rd, 2018, indicating roughly three weeks of preparation for the attacks. These metrics allow us to gain insight into who clicked the link in a phishing email and was directed to a phishing or malware delivery landing page. According to Google analytics, there were a total of 56 clicks. 29 were from Japan, 15 from the United States, 2 from India, and 1 from Russia. 33 of the clicks were from Google Chrome, and 23 were from Safari. 30 were from Windows OS hosts, and 26 were macOS hosts. 
 
@@ -124,9 +124,7 @@ The area of the map labeled #1 is the phishing, malware delivery, fake resume, a
 
 This area is a network that we assess is associated with the umbrella with low confidence. The most interesting findings here are the large number of Let’s Encrypt SSL certificates in use and the overlap with attacker exclusive infrastructure. This proposed relationship is generated by infrastructure links alone, as no malicious activity has been confirmed to or from region #2. Infrastructure in this area is currently in use and not historical. 
 
-
 Area #3 is linked to the initial attack infrastructure (#1) by domain WHOIS details, likely from operational security mistakes. We assess with high confidence that these infrastructures are linked. Based on the lax structure and naming of this section, it is highly probable that it is used for attacker experimenting and development. Some examples include domains such as “nobody.will.know.whoami[.]la”, “secret.whoami[.]la”, and “no.ip.detect.if.using.ipv6[.]la”. Infrastructure in this area is currently in use and not historical. 
-
 
 This area has various links to #3 in which an individual software developer is identified. We asses this connection with low to medium confidence and will refrain from publicly sharing details in this report. This area contains many personally operated domains and SSL certificates. Infrastructure in this area is currently in use and not historical. 
 
@@ -138,9 +136,9 @@ This section represents infrastructure identified by Citizen Lab in their July 5
 
 Lastly is area #8, which links back with high confidence to #7 (Citizen Lab reporting) and #6 (PassCV). This area consists of domains, IPs, MD5 file hashes, and further WHOIS operational security mistakes. This area is similar in functionality to #1 and #3, serving as infrastructure for both high-value politically focused attacks and developer personal use. This section links to the online identities of an individual we asses to be associated with the Winnti umbrella or a closely related group at a medium to high confidence. Infrastructure in this area is currently in use and not historical. One example of malicious activity in this area was the document detailing the strengthening of sanctions against North Korea, above. These activities are similar to the type of politically motivated targeted attacks Citizen Lab reported on. Some infrastructure in this area is currently in use and is not completely historical. 
 
-<image>
+![burning_image_5](images/burning_image_5.png)
  
-Investigative Findings
+## Investigative Findings
  
 Based on incident response engagements, research into the associated attacker infrastructure, and previously reported research, we can summarize our findings as follows: 
 
@@ -153,7 +151,8 @@ The attackers behind observed activity in 2018 operate from the Xicheng District
 Initial attack targets are commonly software organizations in the United States, Japan, South Korea, and China. Later stage high profile targets tend to be political organizations or high-value technology companies. 
 
 The attackers grow and learn to evade detection when possible, but lack operational security when it comes to the reuse of some tooling. Living off the land and adaptability to individual target networks allow them to operate with high rates of success.
-Conclusion
+
+## Conclusion
  
 We hope the information we’ve shared in this report will help potential targets and known victims in addition to the greater information security community. Though they have at times been sloppy, the Winnti umbrella and its associated entities remain an advanced and potent threat. We hope that the information contained within this report will help defenders thwart this group in the future. 
 
