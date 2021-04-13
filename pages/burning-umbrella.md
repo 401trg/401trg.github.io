@@ -76,7 +76,7 @@ Cylance [released a blog post](https://blog.cylance.com/digitally-signed-malware
 
 ***2017 - July/October:***
 
-[ProtectWise 401TRG published our own findings](https://401trg.github.io/winnti-evolution-going-open-source/) and [an update](https://401trg.github.io/an-update-on-winnti/) on LEAD using open source and public tooling in attacks against Japanese gaming organizations. These attacks are linked with high confidence to ongoing operations in the United States and East Asia. 
+[ProtectWise 401TRG published our own findings](https://401trg.github.io/pages/winnti-evolution-going-open-source.html) and [an update](https://401trg.github.io/an-update-on-winnti.html) on LEAD using open source and public tooling in attacks against Japanese gaming organizations. These attacks are linked with high confidence to ongoing operations in the United States and East Asia. 
 
 ***Other Noteworthy Events:***
 
