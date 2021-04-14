@@ -6,7 +6,9 @@ description: An Introduction to SMB for Network Security Analysts
 
 Of all the common protocols a new analyst encounters, perhaps none is quite as impenetrable as Server Message Block (SMB). Its enormous size, sparse documentation, and wide variety of uses can make it one of the most intimidating protocols for junior analysts to learn. But SMB is vitally important: lateral movement in Windows Active Directory environments can be the difference between a minor and a catastrophic breach, and almost all publicly available techniques for this movement involve SMB in some way. While there are numerous guides to certain aspects of SMB available, I found a dearth of material that was accessible, thorough, and targeted towards network analysis. The goal of this guide is to explain this confusing protocol in a way that helps new analysts immediately start threat hunting with it in their networks, ignoring the irrelevant minutiae that seem to form the core of most SMB primers and focusing instead on the kinds of threats an analyst is most likely to see. This guide necessarily sacrifices completeness for accessibility: further in-depth reading is provided in footnotes. There are numerous simplifications throughout to make the basic operation of the protocol more clear; the fact that they are simplifications will not always be highlighted. Lastly, since this guide is an attempt to explain the SMB protocol from a network perspective, the discussion of host based information (windows logs, for example) has been omitted. 
 
-## The Basics
+---
+
+### The Basics
 
 At its most basic, SMB is a protocol to allow devices to perform a number of functions on each other over a (usually local) network. SMB has been around for so long and maintains so much backwards compatibility that it contains an almost absurd amount of vestigial functionality, but its modern core use is simpler than it seems. For the most part, today SMB is used to map network drives, send data to printers, read and write remote files, perform remote administration, and access services on remote machines.
 
@@ -32,7 +34,9 @@ We begin by *creating* the request file again (<span style="color:red">1</span>)
 
 There are a large number of other SMB commands, but many of them are either rare or relatively self explanatory, and we won’t go into detail about them here.<sup>7</sup> You may encounter `AndX` commands,<sup>8</sup> which can be confusing at first. These simply allow two commands to be packaged as one, with one SMB header. For most purposes, you can treat them as two separate commands.
 
-## Authentication
+---
+
+### Authentication
 
 As security analysts, one of the details we are most interested in from SMB traffic is user/machine pairing. An unusual login on a device can be a thread that unravels an entire lateral movement attempt. In Windows Active Directory environments, there are two main ways that hosts authenticate to servers and each other: NTLM and Kerberos. NTLM, the older of the two, has been in use since the release of Windows NT in 1993 but remains supported in the latest versions of Windows.<sup>9</sup> It uses a user’s password hash to encrypt a challenge it is sent by the device it is authenticating to. It is thus extremely vulnerable to pass-the-hash type attacks,<sup>10</sup> and Kerberos is the recommended authentication protocol for Active Directory environments. NTLM continues to be used in Workgroup environments (Windows environments without domain controllers) and some older systems.<sup>11</sup>
 
@@ -44,7 +48,9 @@ Pass-the-hash attacks on NTLM and pass-the-ticket attacks on Kerberos<sup>13</su
 
 Depending on how you capture network traffic, it may or may not be possible to follow a Kerberos session. While the username is not included in the cleartext SMB authentication, you may be able to follow the initial authentication with the TGS and see the returned ticket being used in an SMB session. See [here](https://blogs.msdn.microsoft.com/openspecification/2017/05/26/smb-2-and-smb-3-security-in-windows-10-the-anatomy-of-signing-and-cryptographic-keys/) for more details. 
 
-## RPC
+---
+
+### RPC
 
 One common use case for SMB is to make remote procedure calls (RPC) to another machine on a local network. This functionality can be used for a number of things, but we are especially interested in how it is used for things like user and group enumeration, which can be signs of attempted lateral movement. It’s important to note that RPCs can be made over raw TCP as well as over SMB, so absence of SMB traffic doesn’t mean absence of RPC. We’ll start by looking at a simple example of RPC over SMB which we might see if someone is attempting to enumerate all the users in our domain using the net command.<sup>15</sup>
 
@@ -62,7 +68,9 @@ From a high level, this [PCAP](https://github.com/401trg/detections/raw/master/p
 
 Wireshark parses the `at` scheduler service command for us, and we can see that the user is attempting to schedule mimikatz to run. 
 
-## PSExec 
+---
+
+### PSExec 
 
 PsExec, a windows remote administration tool, has long been an attacker favorite for lateral movement in Active Directory environments. PsExec’s own website describes it as “a light-weight telnet-replacement that lets you execute processes on other systems, complete with full interactivity for console applications, without having to manually install client software. PsExec's most powerful uses include launching interactive command-prompts on remote systems and remote-enabling tools like IpConfig that otherwise do not have the ability to show information about remote systems.”<sup>19</sup> While it is still commonly used for legitimate administration tasks, its extensive functionality makes it useful to attackers. It is worthwhile to keep an eye on all uses of it in your network, if it is deployed at all. 
 
@@ -92,7 +100,9 @@ We perform a normal NTLM authentication (<span style="color:red">1</span>) and t
 
 Though the command is truncated in wireshark, in the raw packet bytes we can see it is meant to decode and execute shellcode. 
 
-## Lateral Movement Techniques
+---
+
+### Lateral Movement Techniques
 
 So far we’ve looked at a number of individual examples of potentially malicious behavior over SMB, but we have not looked at any big picture techniques of how attackers might actually traverse a network. There are of course quite a number of potential strategies to this, but one relatively common technique I’d like to focus on is both easy to perform and relatively difficult to detect. Since Windows stores some credentials (either Kerberos tickets or NTLM hashes) in memory for logged on users, an attacker can sometimes gain more valuable credentials by gaining local Admin on a box, dumping the Kerberos tickets or NTLM hashes from memory, and then impersonating that user to move to another machine that they have access to. That process can then potentially be repeated on another machine. This requires only mimikatz and legitimate Windows tools, and so defender knowledge of appropriate machine/user pairings and proper access controls are essential. SMB analysis can also help us in a couple ways. First, inspecting SMB for unusual authentication can give us a hint when something isn’t right. If our network uses Kerberos, but we see an NTLM authentication between two machines, something is definitely up. Secondly, a technique like the one above often involves a lot of reconnaissance, because it is essential for attackers to know which users have what permissions and who is logged into what machines. Attackers can sometimes create enumeration noise while trying to figure this out (though enumeration tools do have a number of legitimate uses), and seeing unusual RPC calls related to user permissions, group memberships, or active sessions can sometimes indicate compromise.<sup>23</sup>
 
