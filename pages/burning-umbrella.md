@@ -171,4 +171,4 @@ We’d like to extend a special thank you to all the victims, targets, researche
 
 All indicators for this report are located at our [github detections repository.](https://github.com/401trg/detections)
 
-*Written by Tom Hegel, Senior Threat Researcher, Protectwise*
+*Written by Tom Hegel, Senior Threat Researcher, ProtectWise*
