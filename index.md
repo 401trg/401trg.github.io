@@ -37,7 +37,7 @@ Using Emerging Threats Suricata Ruleset to Scan PCAP
 
 **Oct 26, 2017 - Tom Hegel**
 
-[Large Scale IRCbot Infection Attempts](pages/large_scale_ircbot_infection_attempts.html)
+Large Scale IRCbot Infection Attempts
 
 **Oct 16, 2017 - Tom Hegel**
 
