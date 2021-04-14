@@ -45,4 +45,4 @@ The actual recipient of the harvested credentials is `resultspecial02[@]gmail.co
 
 Even a relatively simple phishing campaign like this one can provide valuable insights into attacker thought process and tools. This campaign reinforces the importance of anonymizing your IP address and User-Agent in investigations, since attackers do specifically block IPs or hostnames that could belong to security researchers or organizations that pose a risk to the phishing campaign’s success. If any other analysts have encountered this campaign in the wild, please reach out to us by email or on Twitter! 
 
-*Written by Nate Marx, Threat Researcher, Protectwise
+*Written by Nate Marx, Threat Researcher, Protectwise*
