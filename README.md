@@ -1,18 +1,7 @@
-## Simple site: Easy websites with GitHub pages
+## Archive website for 401trg blog post
 
-[Github Pages](https://pages.github.com) provide a simple way to make a
-website using Markdown and git.
+[This page is an archive of 401trg blog post for posterity and for use by the network security community.
 
-This is a minimal tutorial to get started.
+> 401 TRG (Threat Research Group) is the Threat Research & Analysis Team at ProtectWise. Using our experience and background in incident response and network forensics in both the public and private sectors, we study ProtectWise's extensive network-oriented datasets. This work is focused around network traffic analysis, reverse engineering malware, building behavioral detections, and much more. Now we are sharing our knowledge and intelligence discoveries with fellow network defenders and information security professionals to strengthen the community as a whole.  
 
-View the thing [here](https://kbroman.org/simple_site).
-
----
-
-To the extent possible under law,
-[Karl Broman](https://github.com/kbroman)
-has waived all copyright and related or neighboring rights to
-&ldquo;[simple site](https://github.com/kbroman/simple_site)&rdquo;.
-This work is published from the United States.
-<br/>
-[![CC0](https://i.creativecommons.org/p/zero/1.0/88x31.png)](https://creativecommons.org/publicdomain/zero/1.0/)
+> Our team is passionate about sharing our insights to empower security analysts -- this site will provide a wide range of resources to the community, from our team's research and threat intelligence, to tips, tricks, and tooling to improve your own analysis process. Additionally, we are always on the lookout for other research teams and individuals to collaborate with. 
