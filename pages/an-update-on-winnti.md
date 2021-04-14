@@ -30,4 +30,4 @@ References:
 3. [Bluecoat / Symantec - 2014 Winnti Report](https://www.bluecoat.com/en-gb/security-blog/2014-07-21/korean-gaming-industry-still-under-fire)  
 4. [Kaspersky Lab - 2013 Winnti Report](https://kasperskycontenthub.com/wp-content/uploads/sites/43/vlpdfs/winnti-more-than-just-a-game-130410.pdf)
 
-*Written by Tom Hegel, Senior Threat Researcher, Protectwise*
+*Written by Tom Hegel, Senior Threat Researcher, ProtectWise*
