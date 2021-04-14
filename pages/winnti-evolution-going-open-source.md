@@ -6,7 +6,9 @@ description: Winnti Evolution - Going Open Source
 
 ProtectWise recently observed a burst of activity and change of tactics from an advanced actor group commonly referred to as “Winnti.” The purpose of this post is to share details of the group’s recent activity in an effort to assist the public in searching for related activity in their networks and preventing future attacks. 
 
-## About Winnti
+---
+
+### About Winnti
 
 The Winnti group has been active since roughly 2010. Significant previous research has been published on the group from a variety of sources, such as Kaspersky, Blue Coat, and TrendMicro. As far back as 2011, the group was detected attacking multiple video game studios, including some in South Korea and Japan, likely attempting to steal various in-game currencies and to compromise developers’ certificates and source code. 
 
@@ -30,7 +32,9 @@ The Winnti group has been active since roughly 2010. Significant previous resear
 - Originating Location: China (high confidence)
 - Potential Aliases: Wicked Panda, APT17
 
-## Evolution of Winnti
+---
+
+### Evolution of Winnti
 
 #### Open source tools, and Mac OS targeting:
 
@@ -42,7 +46,9 @@ Also noteworthy are attempts to deliver JAR files containing macOS applications 
 
 Figure 1: Summary of attack progression.
   
-## Delivery:
+---
+
+### Delivery:
 
 The Winnti campaign detailed in this post began with spear phishing emails aimed at a Japanese gaming studio’s staff. At least one of these emails claimed it was from an applicant for a job posting who was listing their relevant experience, along with a link to their resume. 
 
@@ -63,7 +69,9 @@ Figure 3: Fake resume loaded in browser. Some items blurred as content may have 
 
 Figure 4: Fake resume continued.
 
-## Landing:
+---
+
+### Landing:
 
 In cases where the above resume is loaded, it is delivered as follows:
 
@@ -75,7 +83,7 @@ This page is an HTML file containing a simple iframe instruction to load `real.h
 
 Figure 5: Link-click landing page HTML content. 
   
-### real.html
+#### real.html
 This is the HTML file containing the fake resume which will load in browser for the link-click victim. It contains a script which loads the BeEF hook script from a separate external host. The group’s infrastructure changes rapidly, occasionally allowing us to observe them modifying the hook page destination domain over the span of a few minutes. Sometimes the same destination would be referred to by IP in one version of real.html and by hostname in another. Two additional files, `resume_screen.css` and `mypic.jpg`, are also loaded to make the resume look more realistic with improved formatting. 
 
 ![winnti_image_6](images/winnti_image_6.png)
@@ -84,7 +92,9 @@ Figure 6: Added hook.js load request placed in fake resume.
  
 At this point, in cases where BeEF has been used, exploits are typically attempted on victim hosts with the help of BeEF modules. A commonly used module was Jenkins_groovy_code_exec. 
 
-## Evasion Techniques:
+---
+
+### Evasion Techniques:
 
 One of the Winnti group’s distinctive techniques is their particular style of DNS resolution for their C2 domains. Choosing domain names which are similar to valid domains (for example, `google-statics[.]com`, a misspelling of Google statistics, instead of `analytics.google.com`), the group configures their DNS so that the root domain resolves to either nothing, or localhost (previous research has observed the root domain resolving to the valid domain it is imitating; we did not observe that in this campaign). Then a subdomain resolves to an actual C2 server. For example, `google-statics[.]com`, one of the C2 domains observed in this campaign, has no resolutions at time of writing. `css.google-statics[.]com`, however, resolves to a real C2 IP. 
 
@@ -93,6 +103,10 @@ As observed in previous Winnti attacks, the group uses commonly accepted and poo
 ![winnti_image_7](images/winnti_image_7.png)
 
 Figure 7: BeEF hook.js request.
+
+---
+
+### Conclusion
 
 As in previous Winnti campaigns, the group continues to use legitimate code signing certificates, stolen from online gaming organizations, to sign their malware. This technique can help to hide the malicious intent of the group’s code, allowing it to run in environments where execution is restricted to signed/trusted programs. While unconfirmed as of this writing, we believe the Winnti group is continuing to steal and use certificates from new organizations. 
 
