@@ -11,13 +11,13 @@ description: Archive for former 401trg blog post
 
 [Burning Umbrella: An Intelligence Report on the Winnti Umbrella and Associated State-Sponsored Attackers](pages/burning-umbrella.html)
 
-**Apr 02, 2018**
+**Apr 02, 2018 - James Condon, Matt Anthony, Justin Miller**
 
 [Building a Data Lake for Threat Research](pages/building-a-data-lake-for-threat-research.html)
 
-**Feb 22, 2018**
+**Feb 22, 2018 - Tom Hegel**
 
-[Analysis of Active Satori Botnet Infections](pages/analysis-of-active-satori-botnet-infections.html)
+Analysis of Active Satori Botnet Infections
 
 **Dec 20, 2017 - Nate Marx**
 
@@ -27,11 +27,11 @@ description: Archive for former 401trg blog post
 
 [Triaging Large Packet Captures - Methods for Extracting & Analyzing Domains](pages/triaging-large-packet-captures-methods-for-extracting-analyzing-domains.html)
 
-**Nov 14, 2017**
+**Nov 14, 2017 - Mike Logoyda**
 
-[Using Emerging Threats Suricata Ruleset to Scan PCAP](pages/using-emergingthreats-suricata-ruleset-to-scan-pcap.html)
+Using Emerging Threats Suricata Ruleset to Scan PCAP
 
-**Nov 01, 2017**
+**Nov 01, 2017 - Nate Marx**
 
 [Exposing a Phishing Kit](pages/exposing-a-phishing-kit.html)
 
@@ -45,7 +45,7 @@ description: Archive for former 401trg blog post
 
 **Oct 10, 2017 - Tom Hegel**
 
-[Turla Watering Hole Campaigns 2016/2017](pages/turla-watering-hole-campaigns-2016-2017.html)
+Turla Watering Hole Campaigns 2016/2017
 
 **Oct 02, 2017 - Nate Marx**
 
