@@ -95,5 +95,5 @@ Building on the idea of counting unique attributes, we can expand to counting gr
 
 In this blog post we presented a method to store and query a data lake of network artifacts using widely available technologies. We also discussed a handful of hunting techniques that can benefit from the long-term storage of network data. For teams with large data volumes, an easily accessible data lake can significantly improve your threat hunting/detection capabilities. We’ve found this particularly useful for researching and validating new detection hypothesises as well as conducting investigations. We hope you find this information valuable as you build out or maintain your own data lake.
 
-*Written in collaboration with Matt Anthony, Director of Data Science, ProtectWise and Justin Miller, Manager of Threat Engineering, ProtectWise.*
+*Written by James Condon, Director of Threat Research, ProtectWise and Matt Anthony, Director of Data Science, ProtectWise and Justin Miller, Manager of Threat Engineering, ProtectWise.*
 
