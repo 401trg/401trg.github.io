@@ -38,7 +38,7 @@ To generate a list of hostnames and associated IPs, use:
 tshark -q -e <pcap> -z hosts
 ```
 
-From this list you can begin to identify benign hostnames to filter. For example, removing legitimate services such as Google or Netflix. You can also use this command to identify suspicious hostnames for further investigation. Take it one step further by seeing how the hostnames rank on the Cisco Umbrella 1 Million List.
+From this list you can begin to identify benign hostnames to filter. For example, removing legitimate services such as Google or Netflix. You can also use this command to identify suspicious hostnames for further investigation. Take it one step further by seeing how the hostnames rank on the [Cisco Umbrella 1 Million List](https://umbrella.cisco.com/blog/2016/12/14/cisco-umbrella-1-million/).
 
 ## Infrastructure - IPs
 
@@ -52,7 +52,7 @@ By default, the results are ordered by descending packet count. We are generally
 
 ## Conversations
 
-Our final method for paring down the capture is based around large IP conversations. This can be a vital step in understanding why some of the IPs listed from the step above have so much traffic. Additionally it can inform you the role of certain IPs and highlight devices you can remove from the focus of your investigation.
+Our final method for paring down the capture is based around large IP conversations. This can be a vital step in understanding why some of the IPs listed from the step above have so much traffic. Additionally it can inform you on the role of certain IPs and highlight devices you can remove from the focus of your investigation.
 
 This information can be produced using the command: 
 
