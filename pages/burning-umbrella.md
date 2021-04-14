@@ -86,7 +86,9 @@ Cylance [released a blog post](https://blog.cylance.com/digitally-signed-malware
 
 In 2017, multiple supply-chain attacks occurred which had some similarities to the Winnti umbrella and associated entities. For example, [Kaspersky reported on ShadowPad](https://securelist.com/shadowpad-in-corporate-networks/81432/), a large-scale compromise of NetSarang, which resembles the Winnti and PlugX malware. In addition, [Kaspersky](https://twitter.com/craiu/status/910059453948579840?ref_src=twsrc%5Etfw&ref_url=https%3A%2F%2Fwww.intezer.com%2Fevidence-aurora-operation-still-active-supply-chain-attack-through-ccleaner%2F&tfw_creator=IntezerLabs&tfw_site=IntezerLabs) and [Intezer](http://www.intezer.com/evidence-aurora-operation-still-active-supply-chain-attack-through-ccleaner/) identified notable code similarities to the Winnti umbrella and APT17 in the compromise of Piriform, which allowed attackers to sign and spread altered versions of the CCleaner software to a large customer base. 
 
-## Analysis of Attacks on Initial Targets
+---
+
+### Analysis of Attacks on Initial Targets
 
 Throughout 2017 and 2018, ProtectWise 401TRG was involved in a number of detection and incident response engagements with our customers that linked back to the Winnti umbrella and other closely associated entities. Through the analysis of public and private intelligence, we have successfully identified similar attacks, which allow us to assess with high confidence that the details below follow a global attack trend as the Chinese intelligence operations have evolved over time.
 
