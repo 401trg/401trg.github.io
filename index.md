@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 401TRG Archive
+title: Archive
 tagline: all former 401trg blog post
 description: Archive for former 401trg blog post
 ---
