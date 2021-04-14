@@ -76,4 +76,4 @@ This command will produce another long list, but it will likely highlight a numb
 
 Large PCAP files can contain a lot of information making timely triage a difficult task. After using these commands, you will have a number of data points with which to begin trimming down your packet capture. You should also use leads for the next steps of your investigation. In subsequent blog posts we will discuss how to analyze these results further.
 
-*Written by James Condon, Director of Threat Research, Protectwise
+*Written by James Condon, Director of Threat Research, ProtectWise*
