@@ -128,7 +128,9 @@ Once the attackers gain remote access to the network via malware or stolen remot
 
 In the attackers’ ideal situation, all remote access occurs through their own C2 infrastructure, which acts as a proxy and obscures their true location. However, we have observed a few cases of the attackers mistakenly accessing victim machines without a proxy, potentially identifying the true location of the individual running the session. In all of these cases, the net block was `221.216.0.0/13`, the China Unicom Beijing Network, Xicheng District. 
 
-## Visualizing Attacker Infrastructure
+---
+
+### Visualizing Attacker Infrastructure
 
 Based on the various incidents we have been involved in, in addition to past public reporting and open-source intelligence, we can construct a map representing the infrastructure most closely associated with the Winnti umbrella and closely related entities. For the sake of producing an accurate representation of the infrastructure, we are excluding any shared infrastructure (such as hosting provider IPs used for many unrelated domains) and low confidence indicators. Please note this is not an exhaustive list of all active infrastructure in use by the group.
 
@@ -145,7 +147,9 @@ As detailed below, this infrastructure spans at least eight years of activity by
 
 ![burning_image_5](images/burning_image_5.png)
  
-## Investigative Findings
+---
+
+### Investigative Findings
  
 Based on incident response engagements, research into the associated attacker infrastructure, and previously reported research, we can summarize our findings as follows: 
 
@@ -155,7 +159,9 @@ Based on incident response engagements, research into the associated attacker in
 4. Initial attack targets are commonly software organizations in the United States, Japan, South Korea, and China. Later stage high profile targets tend to be political organizations or high-value technology companies. 
 5. The attackers grow and learn to evade detection when possible, but lack operational security when it comes to the reuse of some tooling. Living off the land and adaptability to individual target networks allow them to operate with high rates of success.
 
-## Conclusion
+---
+
+### Conclusion
  
 We hope the information we’ve shared in this report will help potential targets and known victims in addition to the greater information security community. Though they have at times been sloppy, the Winnti umbrella and its associated entities remain an advanced and potent threat. We hope that the information contained within this report will help defenders thwart this group in the future. 
 
