@@ -7,7 +7,9 @@ description: Identifying and Triaging DNS Traffic on Your Network
 
 DNS is one of the most important protocols on the modern internet, and any incident responder must be intimately familiar with its inner workings to perform effective triage of almost any event. Most networks, regardless of security, must let at least some DNS traffic egress for the services they use to work properly, and malware authors often take advantage of this fact. Malware authors are not the only ones who find this property useful, however, and a large number of legitimate services exist which use DNS in a similar fashion, complicating the detection of malicious traffic. In this post, we will explore both malicious and benign but suspicious-looking uses of DNS to make it easier to tell them apart. 
 
-## Identifying Malicous and Benign Traffic
+---
+
+### Differentiating Between Malicous and Benign Traffic
 
 To understand the difference between malicious and benign traffic, it is necessary to first understand the general ways in which malware uses DNS. Two of the most common malware uses of DNS are domain generation algorithms (DGA) and DNS tunneling/C2. There are a number of resources covering these two topics online, so we will only briefly discuss them here. Broadly speaking, DGA is when a piece of malware communicates not with a hardcoded C2 domain, but one that is generated algorithmically, and changes over time. These domains are usually distinct looking, and often contain strings of random looking characters. It is important to note that DGA is not restricted to generating random looking domains, however, and some algorithms use dictionary words to make the domains look less suspicious. The big advantage to malware authors in using DGA is that a single domain being shutdown does not mean they have lost control of their malware. Defenders attempting to shut down malware C2 by blacklisting domains will have a more difficult time since the domains can rotate so quickly. DNS tunneling, on the other hand, uses DNS itself for data transfer, taking advantage of the fact that most networks will query servers outside of the network for domains they don’t recognize. In the simplest case, the victim machine queries an attacker controlled DNS server, passing it data directly. However, even in an environment where communication via DNS is restricted to trusted servers, information can be tunneled out. A victim machine appends data to a subdomain of a domain whose DNS server(s) the attacker controls, and then sends this query to a DNS server on the victim network. The victim network DNS server will then have to send the request to the authoritative nameserver for the attacker controlled domain, and thus the attacker receives the data from the victim host. Data and commands can also be sent to a victim in this way by encoding them in the returned record. This traffic can also have a number of distinctive features, including the use of TXT records, random looking subdomains of suspicious domains, and subdomains encoded in base64 or NetBIOS encoding. 
 
@@ -28,6 +30,10 @@ This can be confirmed by inspecting the string contents of `expressvpnd`, as sho
 ![dns_image_4](images/dns_image_4.png)
 
 ![dns_image_5](images/dns_image_5.png)
+
+---
+
+### Conclusion
 
 Accurately identifying malicious DNS can be a daunting task for network defenders, and this is by no means an exhaustive list of common benign but suspicious looking DNS traffic. Many other benign programs take advantage of the generally easy time DNS has transiting firewalls, and you may see other similar queries from different pieces of software. As always, the best course of action is thorough investigation of local traffic and external infrastructure to conclusively determine if a query is malicious or not.
 
