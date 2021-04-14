@@ -112,4 +112,4 @@ As in previous Winnti campaigns, the group continues to use legitimate code sign
 
 All indicators for this report are located at our [github detections repository.](https://github.com/401trg/detections)
 
-*Written by Tom Hegel, Senior Threat Researcher, Protectwise and Nate Marx, Threat Researcher, Protectwise*
+*Written by Tom Hegel, Senior Threat Researcher, ProtectWise and Nate Marx, Threat Researcher, ProtectWise*
